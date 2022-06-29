@@ -218,7 +218,7 @@ StreamSubscription<FGBGType> subscription;
     });
 ```
 ### Example Image
-<img src="Step-2-Image.jpg"  width="1000px">
+<img src="image.jpg"  width="1000px">
 
 + Step : 6 -- Now For Add Banner Ad Simply Call Function Like This.
 ```dart
