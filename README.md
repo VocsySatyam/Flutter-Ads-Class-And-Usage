@@ -6,7 +6,7 @@
 google_mobile_ads: ^1.3.0    // <-- Always Check Were There Version Is Latest Or Not 
 ```
 + Step : 2 -- Add AppId For test Devices In `AndroidManifest.xml` Inside manifest Inside application Simply Put **meta-data** tag
-```dart
+```java
 <manifest>
   <application>
     <meta-data
@@ -16,7 +16,7 @@ google_mobile_ads: ^1.3.0    // <-- Always Check Were There Version Is Latest Or
 </manifest>
 ```
 + Step : 3 -- Add THis Code In to Your `ios` Folder Inside your `Runner` Inside `info.plist`
-```dart
+```swift
   <key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-3940256099942544~1458002511</string>
 	<key>SKAdNetworkItems</key>
