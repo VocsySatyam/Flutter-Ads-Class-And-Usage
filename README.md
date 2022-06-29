@@ -194,30 +194,28 @@ getAdData(); // <-- Add This Line For Initialize Ads
 ```dart
 WidgetsBinding.instance.addObserver(this);
 ```
-+ Step : 5 -- In your First StateFullWidget Class Add This Function Above InitState.
++ Step : 5.1 -- Add Dependency in Your `pubspec.yaml`
 ```dart
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    switch (state) {
-      case AppLifecycleState.resumed:
+flutter_fgbg: ^0.2.0
+```
++ Step : 5.2 -- In your First StateFullWidget Class Add This Function Above InitState.
+```dart
+StreamSubscription<FGBGType> subscription;
+```
++ Step : 5.3 -- In your First StateFullWidget Class Add This Function In InitState.
+```dart
+    subscription = FGBGEvents.stream.listen((event) {
+      print(event);
+      if (event == FGBGType.foreground) {
         if (openAdLoad == true) {
           appOpenAd.show();
         }
-        print("app in resumed");
-        break;
-      case AppLifecycleState.inactive:
-        print("app in inactive");
-        break;
-      case AppLifecycleState.paused:
+      } else {
         openAdLoad = false;
+        // if (Platform.isAndroid) {
         admobads().loadAppOpenAd();
-        print("app in paused");
-        break;
-      case AppLifecycleState.detached:
-        print("app in detached");
-        break;
-    }
-  }
+      }
+    });
 ```
 ### Example Image
 <img src="Step-2-Image.jpg"  width="1000px">
